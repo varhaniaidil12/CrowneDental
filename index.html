@@ -1,0 +1,1162 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crowné Dental - Klinik Gigi Mahasiswa Terapi Gigi Unhas</title>
+    <meta name="description" content="Crowné Dental - Klinik gigi oleh mahasiswa Terapi Gigi Universitas Hasanuddin. Layanan pembersihan karang gigi, behel, dan perawatan lengkap.">
+    <meta name="keywords" content="klinik gigi makassar, crowné dental, mahasiswa terapi gigi unhas">
+    <meta name="author" content="Tim Crowné Dental - Universitas Hasanuddin">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.crownedental.com">
+    
+    <meta property="og:title" content="Crowné Dental - Klinik Gigi Mahasiswa Unhas">
+    <meta property="og:description" content="Perawatan gigi profesional oleh mahasiswa Terapi Gigi Unhas.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1609840114035-3c981b782dfe?q=80&w=2070">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --navy: #003060;
+            --navy-light: #104c7a;
+            --navy-dark: #002044;
+            --silver: #E8E9EB;
+            --silver-dark: #D1D3D6;
+            --silver-light: #F0F2F4;
+            --white: #FFFFFF;
+            --text-dark: #1E2F4D;
+            --text-light: #5A6B7A;
+            --shadow: 0 8px 24px rgba(0,48,96,0.08);
+        }
+        
+        body {
+            font-family: "Inter", sans-serif;
+            background-color: var(--silver-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+        
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        
+        /* Navbar */
+        .navbar {
+            background: var(--navy);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 12px 0;
+            box-shadow: 0 4px 20px rgba(0,48,96,0.15);
+        }
+        
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .logo-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .logo-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .logo-text h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--silver);
+            line-height: 1.2;
+        }
+        
+        .logo-text span {
+            color: var(--silver-dark);
+            font-size: 0.8rem;
+            display: block;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 32px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--silver);
+            font-weight: 500;
+            transition: all 0.2s;
+            padding: 6px 0;
+            border-bottom: 2px solid transparent;
+        }
+        
+        .nav-links a:hover {
+            border-bottom-color: var(--silver);
+        }
+        
+        .btn-reservasi {
+            background: var(--silver);
+            color: var(--navy);
+            padding: 10px 28px;
+            border-radius: 40px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+        
+        .btn-reservasi:hover {
+            background: var(--silver-light);
+            transform: translateY(-2px);
+        }
+        
+        /* SLIDER */
+        .hero-slider {
+            position: relative;
+            width: 100%;
+            height: 70vh;
+            min-height: 500px;
+            overflow: hidden;
+        }
+        
+        .slide {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .slide.active {
+            opacity: 1;
+            z-index: 10;
+        }
+        
+        .slide-overlay {
+            background: linear-gradient(90deg, rgba(0,48,96,0.8) 0%, rgba(0,48,96,0.4) 100%);
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+        
+        .slide-content {
+            color: var(--white);
+            max-width: 600px;
+            margin-left: 8%;
+        }
+        
+        .slide-content h2 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+        
+        .slide-content p {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+        }
+        
+        .slide-btn {
+            background: var(--silver);
+            color: var(--navy);
+            padding: 12px 28px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s;
+        }
+        
+        .slide-btn:hover {
+            background: var(--white);
+            transform: scale(1.02);
+        }
+        
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(8px);
+            border: 2px solid rgba(255,255,255,0.3);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            font-size: 20px;
+            color: var(--white);
+            cursor: pointer;
+            z-index: 30;
+            transition: all 0.3s;
+        }
+        
+        .slider-btn:hover {
+            background: rgba(255,255,255,0.3);
+        }
+        
+        .prev { left: 20px; }
+        .next { right: 20px; }
+        
+        .slider-dots {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 30;
+        }
+        
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            cursor: pointer;
+        }
+        
+        .dot.active {
+            background: var(--silver);
+            transform: scale(1.2);
+        }
+        
+        /* About & Services Side by Side */
+        .about-services-wrapper {
+            display: flex;
+            gap: 40px;
+            margin: 60px 0;
+            flex-wrap: wrap;
+        }
+        
+        .about-section {
+            flex: 1.2;
+            min-width: 280px;
+        }
+        
+        .services-section {
+            flex: 2;
+            min-width: 300px;
+        }
+        
+        .section-title-small {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 25px;
+            position: relative;
+        }
+        
+        .section-title-small:after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--navy);
+            margin-top: 8px;
+            border-radius: 3px;
+            opacity: 0.3;
+        }
+        
+        .desc-box-simple {
+            background: var(--white);
+            padding: 28px;
+            border-radius: 24px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--silver-dark);
+        }
+        
+        .desc-box-simple p {
+            margin-bottom: 15px;
+        }
+        
+        .desc-box-simple i {
+            color: var(--navy);
+            margin-right: 10px;
+        }
+        
+        /* Layanan Grid dengan GAMBAR - 8 Layanan (2 baris x 4 kolom) */
+        .layanan-grid-compact {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        
+        .layanan-card-compact {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--silver-dark);
+            transition: all 0.3s;
+            cursor: default;
+            text-align: center;
+        }
+        
+        .layanan-card-compact:hover {
+            transform: translateY(-5px);
+            border-color: var(--navy);
+        }
+        
+        .layanan-image {
+            width: 100%;
+            height: 130px;
+            overflow: hidden;
+        }
+        
+        .layanan-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        
+        .layanan-card-compact:hover .layanan-image img {
+            transform: scale(1.05);
+        }
+        
+        .layanan-card-compact h4 {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--navy);
+            padding: 12px 8px;
+            line-height: 1.3;
+        }
+        
+        /* Jam Operasional */
+        .jam-operasional {
+            background: var(--white);
+            border-radius: 28px;
+            padding: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--silver-dark);
+            margin: 50px 0;
+        }
+        
+        .jam-item {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+        
+        .jam-item i {
+            font-size: 2rem;
+            color: var(--navy);
+        }
+        
+        .jam-item div p:first-child {
+            font-weight: 700;
+            color: var(--navy);
+            font-size: 1.1rem;
+        }
+        
+        /* Team Grid */
+        .team-container {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .team-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        
+        .team-card {
+            background: var(--white);
+            border-radius: 28px;
+            padding: 20px 12px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--silver-dark);
+            transition: all 0.3s;
+        }
+        
+        .team-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--navy);
+        }
+        
+        .team-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--silver);
+            margin-bottom: 12px;
+        }
+        
+        .team-name {
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--navy);
+        }
+        
+        .team-role {
+            color: var(--text-light);
+            font-size: 0.8rem;
+        }
+        
+        .group-name {
+            text-align: center;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 25px;
+            padding: 8px 30px;
+            background: var(--white);
+            border-radius: 50px;
+            display: inline-block;
+            border: 1px solid var(--silver-dark);
+        }
+        
+        /* Form Reservasi */
+        .booking-form-section {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            border-radius: 32px;
+            padding: 40px;
+            color: var(--white);
+            margin: 60px 0;
+        }
+        
+        .booking-form-section h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .booking-form-section > p {
+            text-align: center;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .booking-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border-radius: 12px;
+            border: none;
+            font-family: "Inter", sans-serif;
+            font-size: 0.95rem;
+            background: var(--white);
+        }
+        
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            outline: 2px solid var(--silver);
+        }
+        
+        .btn-submit {
+            background: var(--silver);
+            color: var(--navy);
+            padding: 14px 30px;
+            border-radius: 40px;
+            border: none;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .btn-submit:hover {
+            background: var(--white);
+            transform: translateY(-2px);
+        }
+        
+        /* FOOTER - Grid 4 kolom rapi dengan maps sejajar */
+        footer {
+            background: var(--navy);
+            color: var(--silver);
+            padding: 40px 0 25px;
+            border-radius: 32px 32px 0 0;
+            margin-top: 60px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-col h4 {
+            color: var(--silver);
+            font-size: 1.05rem;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid rgba(232,233,235,0.2);
+            display: inline-block;
+        }
+        
+        .footer-col p, .footer-col a {
+            color: var(--silver-dark);
+            text-decoration: none;
+            line-height: 1.8;
+            font-size: 0.9rem;
+        }
+        
+        .footer-col a:hover {
+            color: var(--white);
+        }
+        
+        /* Sosial media di kolom Crowné Dental */
+        .footer-col .social-links {
+            display: flex;
+            gap: 14px;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .footer-col .social-links a {
+            color: var(--silver-dark);
+            font-size: 1.2rem;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .footer-col .social-links a:hover {
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+        
+        .footer-col .social-links a span {
+            font-size: 0.8rem;
+            font-weight: 400;
+        }
+        
+        .footer-col .small-map {
+            border-radius: 12px;
+            overflow: hidden;
+            width: 100%;
+            max-width: 260px;
+            height: 180px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            border: 2px solid rgba(255,255,255,0.15);
+            margin-top: 4px;
+        }
+        
+        .footer-col .small-map iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        
+        .footer-col .map-label {
+            font-size: 0.75rem;
+            color: var(--silver-dark);
+            opacity: 0.7;
+            margin-top: 6px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        
+        .footer-copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(232,233,235,0.2);
+            font-size: 0.8rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px 40px;
+            }
+            .footer-col .small-map {
+                max-width: 100%;
+            }
+        }
+        
+        @media (max-width: 900px) {
+            .team-row {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .about-services-wrapper {
+                flex-direction: column;
+            }
+            .layanan-grid-compact {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .logo {
+                justify-content: center;
+            }
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 20px;
+            }
+            .slide-content h2 {
+                font-size: 2rem;
+            }
+            .slide-content p {
+                font-size: 1rem;
+            }
+            .slider-btn {
+                width: 35px;
+                height: 35px;
+                font-size: 16px;
+            }
+            .team-row {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 25px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .team-row {
+                grid-template-columns: 1fr;
+            }
+            .layanan-grid-compact {
+                grid-template-columns: 1fr;
+            }
+            .jam-operasional {
+                flex-direction: column;
+                align-items: center;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .footer-col h4 {
+                display: inline-block;
+            }
+            .footer-col .small-map {
+                margin-left: auto;
+                margin-right: auto;
+                max-width: 280px;
+            }
+            .footer-col .map-label {
+                justify-content: center;
+            }
+            .footer-col .social-links {
+                justify-content: center;
+            }
+        }
+        
+        html {
+            scroll-padding-top: 80px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <div class="logo-image">
+                    <img src="image/logo.png" alt="Crowné Dental Logo" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'50\' height=\'50\' viewBox=\'0 0 100 100\'%3E%3Ccircle cx=\'50\' cy=\'50\' r=\'45\' fill=\'%23E8E9EB\'/%3E%3Ctext x=\'50\' y=\'70\' font-size=\'50\' text-anchor=\'middle\' fill=\'%23003060\'%3E🦷%3C/text%3E%3C/svg%3E';">
+                </div>
+                <div class="logo-text">
+                    <h1>Crowné Dental</h1>
+                    <span>by Mahasiswa Terapi Gigi Unhas</span>
+                </div>
+            </div>
+            <div class="nav-links">
+                <a href="#home">Beranda</a>
+                <a href="#about">Tentang</a>
+                <a href="#team">Tim</a>
+                <a href="#booking">Booking</a>
+            </div>
+            <a href="#booking" class="btn-reservasi">
+                <i class="fas fa-calendar-plus"></i> Booking Now
+            </a>
+        </div>
+    </nav>
+
+    <!-- HERO SLIDER -->
+    <div class="hero-slider" id="home">
+        <div class="slide active" style="background-image: url('image/gedung.jpg');">
+            <div class="slide-overlay">
+                <div class="slide-content">
+                    <h2>Crowné Dental</h2>
+                    <p>Klinik Gigi Profesional di Makassar</p>
+                    <a href="#about" class="slide-btn">
+                        <i class="fas fa-arrow-right"></i> Selengkapnya
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?q=80&w=2070&auto=format&fit=crop');">
+            <div class="slide-overlay">
+                <div class="slide-content">
+                    <h2>Konsultasi Gratis</h2>
+                    <p>Yuk Periksa Gigi! Konsultasi & Check-Up Gratis untuk Kamu!</p>
+                    <a href="#booking" class="slide-btn">
+                        <i class="fas fa-calendar-plus"></i> Reservasi
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slide" style="background-image: url('image/lobby.jpg');">
+            <div class="slide-overlay">
+                <div class="slide-content">
+                    <h2>Klinik Gigi Profesional</h2>
+                    <p>Perawatan gigi modern dengan standar medis terpercaya</p>
+                    <a href="#team" class="slide-btn">
+                        <i class="fas fa-users"></i> Kenali Tim
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <button class="slider-btn prev" id="prevSlide"><i class="fas fa-chevron-left"></i></button>
+        <button class="slider-btn next" id="nextSlide"><i class="fas fa-chevron-right"></i></button>
+        
+        <div class="slider-dots" id="sliderDots">
+            <span class="dot active" onclick="currentSlide(0)"></span>
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+        </div>
+    </div>
+
+    <main class="container">
+        <!-- ABOUT & SERVICES SIDE BY SIDE -->
+        <div class="about-services-wrapper" id="about">
+            <!-- About Us - Ringkas -->
+            <div class="about-section">
+                <h2 class="section-title-small">Tentang Crowné Dental</h2>
+                <div class="desc-box-simple">
+                    <p><i class="fas fa-tooth"></i> <strong>Crowné Dental</strong> adalah klinik gigi yang dikelola mahasiswa Terapi Gigi <strong>Universitas Hasanuddin (Unhas)</strong>.</p>
+                    <p><i class="fas fa-star"></i> Setiap perawatan dilakukan di bawah supervisi dokter gigi spesialis, dengan standar medis modern dan harga terjangkau.</p>
+                    <p><i class="fas fa-hand-holding-heart"></i> <strong>Visi:</strong> Meningkatkan kesehatan gigi masyarakat Sulawesi Selatan dengan layanan berkualitas.</p>
+                </div>
+            </div>
+            
+            <!-- Layanan dengan GAMBAR - 8 LAYANAN (Rapi 2 baris x 4 kolom) -->
+            <div class="services-section">
+                <h2 class="section-title-small">Layanan Kami</h2>
+                <div class="layanan-grid-compact">
+                    <div class="layanan-card-compact">
+                        <div class="layanan-image">
+                            <img src="image/pembersihan.jpeg" alt="Pembersihan Karang" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'120\' viewBox=\'0 0 150 120\'%3E%3Crect width=\'150\' height=\'120\' fill=\'%23d1d3d6\'/%3E%3Ctext x=\'75\' y=\'65\' font-size=\'30\' text-anchor=\'middle\' fill=\'%23003060\'%3E🦷%3C/text%3E%3C/svg%3E';">
+                        </div>
+                        <h4>Pembersihan Karang Gigi</h4>
+                    </div>
+                    <div class="layanan-card-compact">
+                        <div class="layanan-image">
+                            <img src="image/pencabutan.jpeg" alt="Pencabutan" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'120\' viewBox=\'0 0 150 120\'%3E%3Crect width=\'150\' height=\'120\' fill=\'%23d1d3d6\'/%3E%3Ctext x=\'75\' y=\'65\' font-size=\'30\' text-anchor=\'middle\' fill=\'%23003060\'%3E🦷%3C/text%3E%3C/svg%3E';">
+                        </div>
+                        <h4>Pencabutan Gigi</h4>
+                    </div>
+                    <div class="layanan-card-compact">
+                        <div class="layanan-image">
+                            <img src="image/bleaching.jpeg" alt="Bleaching" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'120\' viewBox=\'0 0 150 120\'%3E%3Crect width=\'150\' height=\'120\' fill=\'%23d1d3d6\'/%3E%3Ctext x=\'75\' y=\'65\' font-size=\'30\' text-anchor=\'middle\' fill=\'%23003060\'%3E🦷%3C/text%3E%3C/svg%3E';">
+                        </div>
+                        <h4>Bleaching</h4>
+                    </div>
+                    <div class="layanan-card-compact">
+                        <div class="layanan-image">
+                            <img src="image/behel.jpeg" alt="Behel" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'120\' viewBox=\'0 0 150 120\'%3E%3Crect width=\'150\' height=\'120\' fill=\'%23d1d3d6\'/%3E%3Ctext x=\'75\' y=\'65\' font-size=\'30\' text-anchor=\'middle\' fill=\'%23003060\'%3E🦷%3C/text%3E%3C/svg%3E';">
+                        </div>
+                        <h4>Pemasangan Behel</h4>
+                    </div>
+                    <div class="layanan-card-compact">
+                        <div class="layanan-image">
+                            <img src="image/penambalan.jpeg" alt="Penambalan" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'120\' viewBox=\'0 0 150 120\'%3E%3Crect width=\'150\' height=\'120\' fill=\'%23d1d3d6\'/%3E%3Ctext x=\'75\' y=\'65\' font-size=\'30\' text-anchor=\'middle\' fill=\'%23003060\'%3E🦷%3C/text%3E%3C/svg%3E';">
+                        </div>
+                        <h4>Penambalan Gigi</h4>
+                    </div>
+                    <div class="layanan-card-compact">
+                        <div class="layanan-image">
+                            <img src="image/psa.jpeg" alt="PSA" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'120\' viewBox=\'0 0 150 120\'%3E%3Crect width=\'150\' height=\'120\' fill=\'%23d1d3d6\'/%3E%3Ctext x=\'75\' y=\'65\' font-size=\'30\' text-anchor=\'middle\' fill=\'%23003060\'%3E🦷%3C/text%3E%3C/svg%3E';">
+                        </div>
+                        <h4>Perawatan Akar (PSA)</h4>
+                    </div>
+                    <div class="layanan-card-compact">
+                        <div class="layanan-image">
+                            <img src="image/gipal.jpeg" alt="Gigi Tiruan" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'120\' viewBox=\'0 0 150 120\'%3E%3Crect width=\'150\' height=\'120\' fill=\'%23d1d3d6\'/%3E%3Ctext x=\'75\' y=\'65\' font-size=\'30\' text-anchor=\'middle\' fill=\'%23003060\'%3E🦷%3C/text%3E%3C/svg%3E';">
+                        </div>
+                        <h4>Gigi Tiruan</h4>
+                    </div>
+                    <div class="layanan-card-compact">
+                        <div class="layanan-image">
+                            <img src="image/perawatan.jpeg" alt="Perawatan Anak" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'120\' viewBox=\'0 0 150 120\'%3E%3Crect width=\'150\' height=\'120\' fill=\'%23d1d3d6\'/%3E%3Ctext x=\'75\' y=\'65\' font-size=\'30\' text-anchor=\'middle\' fill=\'%23003060\'%3E🦷%3C/text%3E%3C/svg%3E';">
+                        </div>
+                        <h4>Perawatan Gigi Anak</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Jam Operasional -->
+        <div class="jam-operasional">
+            <div class="jam-item">
+                <i class="far fa-calendar-alt"></i>
+                <div>
+                    <p>Senin - Jumat</p>
+                    <p>10.00 - 21.00 WITA</p>
+                </div>
+            </div>
+            <div class="jam-item">
+                <i class="far fa-calendar-check"></i>
+                <div>
+                    <p>Sabtu - Minggu</p>
+                    <p>Reservasi (by appointment)</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- TEAM -->
+        <section id="team">
+            <h2 class="section-title-small" style="text-align: center;">Tim Crowné Dental</h2>
+            <div style="text-align: center;">
+                <span class="group-name">Kelompok 4 - Terapi Gigi '24</span>
+            </div>
+            
+            <div class="team-container">
+                <div class="team-row">
+                    <div class="team-card">
+                        <img class="team-img" src="image/uploads/farhaniaidil.jpeg" alt="Farhani Aidil" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'100\' viewBox=\'0 0 100 100\'%3E%3Ccircle cx=\'50\' cy=\'50\' r=\'45\' fill=\'%23d1d3d6\'/%3E%3Ctext x=\'50\' y=\'70\' font-size=\'45\' text-anchor=\'middle\' fill=\'%23003060\'%3E👤%3C/text%3E%3C/svg%3E';">
+                        <div class="team-name">Farhani Aidil</div>
+                        <div class="team-role">V066241065</div>
+                    </div>
+                    <div class="team-card">
+                        <img class="team-img" src="image/uploads/haerunnisah.jpeg" alt="Haerunnisah" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'100\' viewBox=\'0 0 100 100\'%3E%3Ccircle cx=\'50\' cy=\'50\' r=\'45\' fill=\'%23d1d3d6\'/%3E%3Ctext x=\'50\' y=\'70\' font-size=\'45\' text-anchor=\'middle\' fill=\'%23003060\'%3E👤%3C/text%3E%3C/svg%3E';">
+                        <div class="team-name">Haerunnisah</div>
+                        <div class="team-role">V066241041</div>
+                    </div>
+                    <div class="team-card">
+                        <img class="team-img" src="image/uploads/nurnabila.jpeg" alt="Nur Nabila" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'100\' viewBox=\'0 0 100 100\'%3E%3Ccircle cx=\'50\' cy=\'50\' r=\'45\' fill=\'%23d1d3d6\'/%3E%3Ctext x=\'50\' y=\'70\' font-size=\'45\' text-anchor=\'middle\' fill=\'%23003060\'%3E👤%3C/text%3E%3C/svg%3E';">
+                        <div class="team-name">Nur Nabila</div>
+                        <div class="team-role">V066241007</div>
+                    </div>
+                    <div class="team-card">
+                        <img class="team-img" src="image/uploads/rezkiamalia.jpeg" alt="Rezki Amalia" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'100\' viewBox=\'0 0 100 100\'%3E%3Ccircle cx=\'50\' cy=\'50\' r=\'45\' fill=\'%23d1d3d6\'/%3E%3Ctext x=\'50\' y=\'70\' font-size=\'45\' text-anchor=\'middle\' fill=\'%23003060\'%3E👤%3C/text%3E%3C/svg%3E';">
+                        <div class="team-name">Rezki Amalia</div>
+                        <div class="team-role">V066241027</div>
+                    </div>
+                </div>
+                
+                <div class="team-row">
+                    <div class="team-card">
+                        <img class="team-img" src="image/uploads/syilahsazkiah.jpeg" alt="Syilah Sazkiah" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'100\' viewBox=\'0 0 100 100\'%3E%3Ccircle cx=\'50\' cy=\'50\' r=\'45\' fill=\'%23d1d3d6\'/%3E%3Ctext x=\'50\' y=\'70\' font-size=\'45\' text-anchor=\'middle\' fill=\'%23003060\'%3E👤%3C/text%3E%3C/svg%3E';">
+                        <div class="team-name">Syilah Sazkiah</div>
+                        <div class="team-role">V066241050</div>
+                    </div>
+                    <div class="team-card">
+                        <img class="team-img" src="image/uploads/taskiaramadhani.jpeg" alt="Taskia Ramadhani" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'100\' viewBox=\'0 0 100 100\'%3E%3Ccircle cx=\'50\' cy=\'50\' r=\'45\' fill=\'%23d1d3d6\'/%3E%3Ctext x=\'50\' y=\'70\' font-size=\'45\' text-anchor=\'middle\' fill=\'%23003060\'%3E👤%3C/text%3E%3C/svg%3E';">
+                        <div class="team-name">Taskia Ramadhani</div>
+                        <div class="team-role">V066231011</div>
+                    </div>
+                    <div class="team-card">
+                        <img class="team-img" src="image/uploads/fitriamalia.jpeg" alt="Fitri Amalia" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'100\' viewBox=\'0 0 100 100\'%3E%3Ccircle cx=\'50\' cy=\'50\' r=\'45\' fill=\'%23d1d3d6\'/%3E%3Ctext x=\'50\' y=\'70\' font-size=\'45\' text-anchor=\'middle\' fill=\'%23003060\'%3E👤%3C/text%3E%3C/svg%3E';">
+                        <div class="team-name">Fitri Amalia</div>
+                        <div class="team-role">V066241008</div>
+                    </div>
+                    <div class="team-card">
+                        <img class="team-img" src="image/uploads/asyrafilabrar.jpeg" alt="Asyrafil Abrar" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'100\' viewBox=\'0 0 100 100\'%3E%3Ccircle cx=\'50\' cy=\'50\' r=\'45\' fill=\'%23d1d3d6\'/%3E%3Ctext x=\'50\' y=\'70\' font-size=\'45\' text-anchor=\'middle\' fill=\'%23003060\'%3E👤%3C/text%3E%3C/svg%3E';">
+                        <div class="team-name">Asyrafil Abrar</div>
+                        <div class="team-role">V066241010</div>
+                    </div>
+                </div>
+            </div>
+            
+            <p style="text-align: center; margin-top: 15px; color: var(--text-light); font-size: 0.9rem;">
+                <i class="fas fa-info-circle"></i> TelluCappa Crew
+            </p>
+        </section>
+
+        <!-- BOOKING FORM -->
+        <section id="booking">
+            <div class="booking-form-section">
+                <h3>Booking Online</h3>
+                <p>Isi form di bawah ini untuk melakukan reservasi. Kami akan segera mengonfirmasi melalui WhatsApp.</p>
+                
+                <form class="booking-form" id="bookingForm">
+                    <div class="form-group">
+                        <label><i class="fas fa-user"></i> Nama Lengkap</label>
+                        <input type="text" id="nama" placeholder="Masukkan nama lengkap Anda" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label><i class="fab fa-whatsapp"></i> Nomor WhatsApp</label>
+                        <input type="tel" id="wa" placeholder="Contoh: 081234567890" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label><i class="fas fa-tooth"></i> Layanan yang Dipilih</label>
+                        <select id="layanan" required>
+                            <option value="">Pilih Layanan</option>
+                            <option>Pembersihan Karang Gigi</option>
+                            <option>Pencabutan Gigi</option>
+                            <option>Bleaching / Pemutihan</option>
+                            <option>Pemasangan Behel</option>
+                            <option>Penambalan Gigi</option>
+                            <option>Perawatan Saluran Akar (PSA)</option>
+                            <option>Pemasangan Gigi Tiruan</option>
+                            <option>Perawatan Gigi Anak</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label><i class="fas fa-calendar"></i> Tanggal Reservasi</label>
+                        <input type="date" id="tanggal" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label><i class="fas fa-clock"></i> Jam Reservasi</label>
+                        <select id="jam" required>
+                            <option value="">Pilih Jam</option>
+                            <option>10:00</option><option>11:00</option><option>13:00</option>
+                            <option>14:00</option><option>15:00</option><option>16:00</option>
+                            <option>17:00</option><option>18:00</option><option>19:00</option><option>20:00</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label><i class="fas fa-note-sticky"></i> Catatan (opsional)</label>
+                        <textarea rows="3" id="catatan" placeholder="Keluhan / catatan tambahan..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn-submit">
+                        <i class="fas fa-paper-plane"></i> Kirim Reservasi
+                    </button>
+                </form>
+                
+                <p style="text-align: center; margin-top: 20px; font-size: 0.85rem; opacity: 0.8;">
+                    <i class="fas fa-check-circle"></i> Kami akan mengonfirmasi reservasi Anda via WhatsApp maksimal 2x24 jam
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER - Grid 4 Kolom, Sosial Media di Kolom Crowné Dental -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Kolom 1: Crowné Dental + Sosial Media -->
+                <div class="footer-col">
+                    <h4>Crowné Dental</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> Jl. Perintis Kemerdekaan No.Km.10</p>
+                    <p>Tamalanrea, Makassar, Sulawesi Selatan</p>
+                    <p><i class="fas fa-phone"></i> 0812-3456-7890</p>
+                    <p><i class="fas fa-envelope"></i> crownedental@unhas.ac.id</p>
+                    
+                    <!-- Sosial Media di sini -->
+                    <div class="social-links">
+                        <a href="#" target="_blank"><i class="fab fa-instagram"></i> <span>crownedental.unhas</span></a>
+                        <a href="#" target="_blank"><i class="fab fa-tiktok"></i> <span>crownedental_unhas</span></a>
+                        <a href="#" target="_blank"><i class="fab fa-whatsapp"></i> <span>0812-3456-7890</span></a>
+                    </div>
+                </div>
+                
+                <!-- Kolom 2: Layanan -->
+                <div class="footer-col">
+                    <h4>Layanan</h4>
+                    <p>Pembersihan Karang Gigi</p>
+                    <p>Pencabutan Gigi</p>
+                    <p>Bleaching</p>
+                    <p>Pemasangan Behel</p>
+                    <p>Penambalan Gigi</p>
+                    <p>Perawatan Akar (PSA)</p>
+                    <p>Pemasangan Gigi Tiruan</p>
+                    <p>Perawatan Anak</p>
+                </div>
+                
+                <!-- Kolom 3: Jam Operasional -->
+                <div class="footer-col">
+                    <h4>Jam Operasional</h4>
+                    <p><strong>Senin - Jumat</strong></p>
+                    <p>10.00 - 21.00 WITA</p>
+                    <p style="margin-top:8px;"><strong>Sabtu - Minggu</strong></p>
+                    <p>Reservasi (by appointment)</p>
+                </div>
+                
+                <!-- Kolom 4: Google Maps (sejajar) -->
+                <div class="footer-col">
+                    <h4>Lokasi Kami</h4>
+                    <div class="small-map">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3973.800646131934!2d119.48563367354917!3d-5.135777494841402!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dbefd25d3ce366f%3A0x87dd21ab81631c3b!2sFakultas%20vokasi%20Universitas%20Hasanuddin!5e0!3m2!1sid!2sid!4v1772082304180!5m2!1sid!2sid" 
+                            allowfullscreen="" 
+                            loading="lazy">
+                        </iframe>
+                    </div>
+                    <p class="map-label">
+                        <i class="fas fa-map-pin"></i> Fakultas Vokasi Unhas
+                    </p>
+                </div>
+            </div>
+            
+            <div class="footer-copyright">
+                &copy; 2026 Crowné Dental by Kelompok 4 Terapi Gigi Unhas.
+                <br>
+                <span style="opacity: 0.6;">Mahasiswa Terapi Gigi - Universitas Hasanuddin</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript untuk Slider dan Form -->
+    <script>
+        // SLIDER FUNCTIONALITY
+        const slides = document.querySelectorAll('.slide');
+        const prevBtn = document.getElementById('prevSlide');
+        const nextBtn = document.getElementById('nextSlide');
+        const dots = document.querySelectorAll('.dot');
+        let currentIndex = 0;
+        const slideCount = slides.length;
+        let slideInterval;
+
+        function showSlide(index) {
+            if (index >= slideCount) currentIndex = 0;
+            else if (index < 0) currentIndex = slideCount - 1;
+            else currentIndex = index;
+            
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            slides[currentIndex].classList.add('active');
+            dots[currentIndex].classList.add('active');
+        }
+
+        function nextSlide() { showSlide(currentIndex + 1); }
+        function prevSlide() { showSlide(currentIndex - 1); }
+
+        window.currentSlide = function(index) {
+            showSlide(index);
+            clearInterval(slideInterval);
+            slideInterval = setInterval(nextSlide, 5000);
+        }
+
+        if (prevBtn && nextBtn) {
+            prevBtn.addEventListener('click', function() {
+                prevSlide();
+                clearInterval(slideInterval);
+                slideInterval = setInterval(nextSlide, 5000);
+            });
+            nextBtn.addEventListener('click', function() {
+                nextSlide();
+                clearInterval(slideInterval);
+                slideInterval = setInterval(nextSlide, 5000);
+            });
+        }
+
+        slideInterval = setInterval(nextSlide, 5000);
+
+        const slider = document.querySelector('.hero-slider');
+        if (slider) {
+            slider.addEventListener('mouseenter', () => clearInterval(slideInterval));
+            slider.addEventListener('mouseleave', () => slideInterval = setInterval(nextSlide, 5000));
+        }
+
+        // BOOKING FORM
+        const bookingForm = document.getElementById('bookingForm');
+        
+        if (bookingForm) {
+            bookingForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const nama = document.getElementById('nama').value;
+                const wa = document.getElementById('wa').value;
+                const layanan = document.getElementById('layanan').value;
+                const tanggal = document.getElementById('tanggal').value;
+                const jam = document.getElementById('jam').value;
+                const catatan = document.getElementById('catatan').value || '-';
+                
+                if (!nama || !wa || !layanan || !tanggal || !jam) {
+                    alert('Mohon lengkapi semua field yang diperlukan!');
+                    return;
+                }
+                
+                alert(`✅ Reservasi berhasil!\n\nTerima kasih ${nama}, reservasi untuk layanan ${layanan} pada tanggal ${tanggal} jam ${jam} telah kami terima.\n\nKami akan mengonfirmasi via WhatsApp ke ${wa} maksimal 2x24 jam.`);
+                
+                bookingForm.reset();
+            });
+        }
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                const target = document.querySelector(targetId);
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
